@@ -12,7 +12,7 @@ public class Main {
         countTueWedThur(entries);
         weekendList(entries);
         weekdaySet(entries);
-//        printDurationGreaterThan10(entries);
+        printDurationGreaterThan10(entries);
 //        findMaxDuration(entries);
 //        listGreaterThan50(entries);
     }
@@ -118,7 +118,7 @@ public class Main {
 //        // write stream
 //        System.out.println();
 //    }
-//
+
 //    public static void findMaxDuration(List<Entry> entries){
 //        System.out.println("For Loop:");
 //        int temp = 0;
