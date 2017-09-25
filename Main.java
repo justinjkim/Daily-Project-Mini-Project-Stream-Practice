@@ -11,7 +11,7 @@ public class Main {
         printTuesdays(entries);
         countTueWedThur(entries);
         weekendList(entries);
-//        weekdaySet(entries);
+        weekdaySet(entries);
 //        printDurationGreaterThan10(entries);
 //        findMaxDuration(entries);
 //        listGreaterThan50(entries);
@@ -90,18 +90,27 @@ public class Main {
         System.out.println();
     }
 
-//    public static void weekdaySet(List<Entry> entries) {
-//        //Create a SET of weekday entries
-//        System.out.println("For Loop:");
-//        Set<String> weekdays = new HashSet<>();
-//        // write for loop
-//        System.out.println(weekdays);
-//        System.out.println("Stream, filter, map, collect:");
-//        weekdays = // write stream
-//        System.out.println(weekdays);
-//        System.out.println();
-//    }
-//
+    public static void weekdaySet(List<Entry> entries) {
+        //Create a SET of weekday entries
+        System.out.println("For Loop:");
+        Set<String> weekdays = new HashSet<>();
+        // write for loop
+        for (Entry entry: entries) {
+            if (entry.getDay().equals(Day.MONDAY) || entry.getDay().equals(Day.TUESDAY) || entry.getDay().equals(Day.WEDNESDAY) || entry.getDay().equals(Day.THURSDAY) || entry.getDay().equals(Day.FRIDAY)) {
+                weekdays.add(entry.toString());
+            }
+        }
+        System.out.println(weekdays);
+
+        System.out.println("Stream, filter, map, collect:");
+        weekdays = entries.stream()
+                .filter(entry -> entry.getDay().equals(Day.MONDAY) || entry.getDay().equals(Day.TUESDAY) || entry.getDay().equals(Day.WEDNESDAY) || entry.getDay().equals(Day.THURSDAY) || entry.getDay().equals(Day.FRIDAY))
+                .map(Object::toString)
+                .collect(Collectors.toSet());
+        System.out.println(weekdays);
+        System.out.println();
+    }
+
 //    public static void printDurationGreaterThan10(List<Entry> entries){
 //        System.out.println("For Loop:");
 //        // write for loop
