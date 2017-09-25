@@ -9,7 +9,7 @@ public class Main {
         List<Entry> entries = Entry.populate();
         printEntries(entries);
         printTuesdays(entries);
-//        countTueWedThur(entries);
+        countTueWedThur(entries);
 //        weekendList(entries);
 //        weekdaySet(entries);
 //        printDurationGreaterThan10(entries);
@@ -47,19 +47,28 @@ public class Main {
         System.out.println();
     }
 
-//    public static void countTueWedThur(List<Entry> entries) {
-//        //Count the number of Tuesday, Wednesday, and Thursday entries
-//        System.out.println("For Loop:");
-//        int count = 0;
-//        // write for loop
-//        System.out.println("Number of entries on Tuesday, Wednesday or Thursday: " + count);
-//        System.out.println("Stream, filter, count: ");
-//        long count1 = 0;
-//        // write stream
-//        System.out.println("Number of entries on Tuesday, Wednesday or Thursday: " + count1);
-//        System.out.println();
-//    }
-//
+    public static void countTueWedThur(List<Entry> entries) {
+        //Count the number of Tuesday, Wednesday, and Thursday entries
+        System.out.println("For Loop:");
+        int count = 0;
+        // write for loop
+        for (Entry entry: entries) {
+            if (entry.getDay().equals(Day.TUESDAY) || entry.getDay().equals(Day.WEDNESDAY) || entry.getDay().equals(Day.THURSDAY)) {
+                count++;
+            }
+        }
+        System.out.println("Number of entries on Tuesday, Wednesday or Thursday: " + count);
+
+
+        System.out.println("Stream, filter, count: ");
+        long count1 = 0;
+        // write stream
+        count1 = entries.stream()
+                .filter(entry -> entry.getDay().equals(Day.TUESDAY) || entry.getDay().equals(Day.WEDNESDAY) || entry.getDay().equals(Day.THURSDAY)).count();
+        System.out.println("Number of entries on Tuesday, Wednesday or Thursday: " + count1);
+        System.out.println();
+    }
+
 //    public static void weekendList(List<Entry> entries) {
 //        //Create a list of weekend (Saturday and Sunday) entries
 //        System.out.println("For Loop:");
