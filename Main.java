@@ -9,12 +9,12 @@ public class Main {
         List<Entry> entries = Entry.populate();
         printEntries(entries);
         printTuesdays(entries);
-        countTueWedThur(entries);
-        weekendList(entries);
-        weekdaySet(entries);
-        printDurationGreaterThan10(entries);
-        findMaxDuration(entries);
-        listGreaterThan50(entries);
+//        countTueWedThur(entries);
+//        weekendList(entries);
+//        weekdaySet(entries);
+//        printDurationGreaterThan10(entries);
+//        findMaxDuration(entries);
+//        listGreaterThan50(entries);
     }
 
 
@@ -35,12 +35,15 @@ public class Main {
         // write for loop
         for (Entry entry: entries) {
             if (entry.getDay() == Day.TUESDAY) {
-                System.out.println(entry.getNote());
+                System.out.println(entry + ", ");
             }
         }
 
         System.out.println("\nStream, filter, forEach:");
         // write stream
+        entries.stream()
+                .filter(entry -> entry.getDay().equals(Day.TUESDAY))
+                .forEach(entry -> System.out.println(entry));
         System.out.println();
     }
 
