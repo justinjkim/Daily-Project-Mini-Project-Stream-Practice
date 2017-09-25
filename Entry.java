@@ -6,6 +6,7 @@ import java.util.Random;
 public class Entry {
     private Day day;
     private String note;
+    private int duration;
 
     public Entry(Day day, String note) {
         this.day = day;
@@ -31,6 +32,7 @@ public class Entry {
     public static List<Entry> populate(){
         List<Entry> entries = new ArrayList<>();
         Random random = new Random();
+        int duration = random.nextInt(100);
 
         Entry entry = new Entry(Day.MONDAY,"Today I went to play sports");
         entries.add(entry);
